@@ -86,4 +86,9 @@ class Matrix:
         return diagonal
 
     def __repr__(self):
-        return "312"
+        string = ""
+        for row in self.matrix:
+            for element in row:
+                string += "{:^5d}" .format  (element)
+            string += "\n"
+        return string;

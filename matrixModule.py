@@ -57,7 +57,11 @@ def columnMatrix(matrix):
     return False;
 
 def transposedMatrix(matrix):
-    pass
+    newMatrix = Matrix(matrix.columns, matrix.rows);
+    for line in range(1, matrix.rows + 1):
+        for (element, column) in (zip(matrix.getRow(line), range(1, matrix.columns + 1))):
+            newMatrix.modifyElement(column, line, element)
+    return newMatrix
 
 def symmetricMatrix(matrix):
     """Is very complex
@@ -69,8 +73,9 @@ def symmetricMatrix(matrix):
 
 m = Matrix(4,4);
 m.modifyElement(3,2,34)
-m.modifyElement(2,3,34)
-print(m)
-print 2
-print(symmetricMatrix(m))
-print len(m)
+m.modifyElement(4,3,7)
+m.modifyElement(4,2,8)
+m.modifyRow(1,2)
+print m
+print 1
+print transposedMatrix(m)
